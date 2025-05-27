@@ -1,52 +1,43 @@
-'use client';
-import { useRef } from 'react';
-import { usePathname } from 'next/navigation';
-import { Geist, Geist_Mono } from "next/font/google";
+"use client";
+
+import { usePathname } from "next/navigation";
+import gsap from "gsap";
+import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Inter } from "next/font/google";
+import { useGSAP } from "@gsap/react";
+
 import "./globals.css";
-import gsap from 'gsap/dist/gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import { ScrollSmoother } from 'gsap/dist/ScrollSmoother';
-import { useGSAP } from '@gsap/react';
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+}
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
-
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
-  const smoother = useRef();
+export default function RootLayout({ children }) {
   const pathname = usePathname();
 
   useGSAP(
     () => {
-      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
-      smoother.current = ScrollSmoother.create({
+      ScrollSmoother.create({
         smooth: 2,
         effects: true,
       });
     },
     {
       dependencies: [pathname],
+      revertOnUpdate: true,
     }
   );
 
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <head />
+      <body className={inter.className}>
+        <div id="smooth-wrapper">
+          <div id="smooth-content">{children}</div>
+        </div>
       </body>
     </html>
   );

@@ -27,7 +27,7 @@ const HomePage = () => {
   return (
     <main className="home" ref={container}>
       <div className="header">
-        <h1 className="title">ScrollSmoother NextJS App Folder</h1>
+        <h1 className="title">没有永远的年轻，没有唱不完的歌</h1>
         <p>
           Simple example for setting up GSAP ScrollSmoother in a NextJS App
           using the{" "}

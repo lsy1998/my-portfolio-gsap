@@ -13,8 +13,6 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 }
 
-const inter = Inter({ subsets: ["latin"] });
-
 export default function RootLayout({ children }) {
   const pathname = usePathname();
 
@@ -34,7 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head />
-      <body className={inter.className}>
+      <body>
         <div id="smooth-wrapper">
           <div id="smooth-content">{children}</div>
         </div>

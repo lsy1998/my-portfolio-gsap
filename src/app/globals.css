@@ -3,7 +3,21 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Lanseyu';
+  src: url('/fonts/lanseyu.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
 
+@font-face {
+  font-family: 'Lanseyu';
+  src: url('/fonts/lanseyu.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   --color-shockingly-green: #0ae448;
@@ -411,7 +425,7 @@
 body {
   color: var(--color-surface-white);
   background-color: var(--dark);
-  font-family: Mori, sans-serif;
+  font-family: Lanseyu, sans-serif;
   font-weight: 400;
   margin: 0;
   font-size: var(--step-0);

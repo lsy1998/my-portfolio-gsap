@@ -29,7 +29,26 @@ const HomePage = () => {
 
       gsap.registerPlugin(ScrollTrigger);
 
-      // 创建唱片旋转的时间轴动画
+      // 创建共享的ScrollTrigger配置
+      const scrollTriggerConfig = {
+        trigger: ".vinyl-player",
+        start: "top center",
+        end: "+=500",
+        scrub: 3,
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const vinylDisc = document.querySelector(".vinyl-disc");
+          if (vinylDisc) {
+            if (progress > 0.5) {
+              vinylDisc.classList.add("active");
+            } else {
+              vinylDisc.classList.remove("active");
+            }
+          }
+        },
+      };
+
+      // 创建唱片旋转和缩放的时间轴动画
       const discTimeline = gsap.timeline({
         paused: true,
         repeat: -1,
@@ -38,50 +57,35 @@ const HomePage = () => {
         },
       });
 
+      // 创建唱片滚动时的缩放动画和指针隐藏动画
+      const scrollTimeline = gsap.timeline({
+        scrollTrigger: scrollTriggerConfig,
+      });
+
+      // 添加唱片缩放和指针隐藏的动画
+      scrollTimeline
+        .to(".vinyl-disc", {
+          scale: 2,
+          duration: 1,
+          ease: "power2.inOut",
+        })
+        .to(
+          ".needle",
+          {
+            opacity: 0,
+            duration: 1,
+            ease: "power2.inOut",
+          },
+          "<"
+        ); // "<" 表示与前一个动画同时开始
+
       // 添加连续旋转动画
       discTimeline.to(".vinyl-disc", {
         rotation: 360,
         duration: 2,
         ease: "linear",
         transformOrigin: "center center",
-      }); // 创建唱针的滚动动画
-      const needleTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".vinyl-player",
-          start: "top center",
-          end: "+=500", // 增加滚动距离，使动画更平缓
-          markers: true,
-          scrub: 3, // 增加平滑度，数值越大越平滑
-          anticipatePin: 1, // 提前加载以确保平滑
-          onUpdate: (self) => {
-            // 根据滚动进度添加active类
-            const progress = self.progress;
-            const vinylDisc = document.querySelector(".vinyl-disc");
-            if (vinylDisc) {
-              if (progress > 0.5) {
-                vinylDisc.classList.add("active");
-              } else {
-                vinylDisc.classList.remove("active");
-              }
-            }
-          },
-        },
       });
-
-      // 添加唱针的精细动画
-      needleTimeline.fromTo(
-        needleRef.current,
-        {
-          rotation: -30,
-          transformOrigin: "20% 20%",
-        },
-        {
-          rotation: 0,
-          transformOrigin: "20% 20%",
-          duration: 1,
-          ease: "power2.inOut", // 使用更平滑的缓动效果
-        }
-      );
 
       // 监听播放状态变化
       const updateAnimation = (playing: boolean) => {
@@ -95,8 +99,8 @@ const HomePage = () => {
       updateAnimation(isPlaying);
 
       return () => {
-        if (needleTimeline.scrollTrigger) {
-          needleTimeline.scrollTrigger.kill();
+        if (scrollTimeline.scrollTrigger) {
+          scrollTimeline.scrollTrigger.kill();
         }
       };
     },
@@ -138,7 +142,10 @@ const HomePage = () => {
         </button> */}
       </div>
 
-      <div className="line"></div>
+      <div>
+        于是整座山就忘了你 忘了多艳丽 山花终将离去
+        漫山遍野那些荒唐里我回头望去山花了无痕迹
+      </div>
     </main>
   );
 };

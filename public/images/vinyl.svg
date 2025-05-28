@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="300" height="300" viewBox="0 0 300 300" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- 背景和主要圆环 -->
+    <circle cx="150" cy="150" r="150" fill="url(#vinyl-gradient)"/>
+    <circle cx="150" cy="150" r="145" stroke="#333333" stroke-width="2"/>
+    
+    <!-- 唱片纹理 -->
+    <g opacity="0.8">
+        <circle cx="150" cy="150" r="130" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="125" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="120" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="115" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="110" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="105" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="100" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="95" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="90" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="85" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="80" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="75" stroke="#2A2A2A" stroke-width="0.5"/>
+        <circle cx="150" cy="150" r="70" stroke="#2A2A2A" stroke-width="0.5"/>
+    </g>
+
+    <!-- 中心标签 -->
+    <circle cx="150" cy="150" r="40" fill="url(#center-gradient)"/>
+    <circle cx="150" cy="150" r="25" fill="#FFFFFF"/>
+    <circle cx="150" cy="150" r="5" fill="#1A1A1A"/>
+
+    <!-- 渐变定义 -->
+    <defs>
+        <radialGradient id="vinyl-gradient" cx="150" cy="150" r="150" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#2A2A2A"/>
+            <stop offset="70%" stop-color="#1A1A1A"/>
+            <stop offset="100%" stop-color="#000000"/>
+        </radialGradient>
+        <radialGradient id="center-gradient" cx="150" cy="150" r="40" gradientUnits="userSpaceOnUse">
+            <stop offset="0%" stop-color="#DDDDDD"/>
+            <stop offset="100%" stop-color="#999999"/>
+        </radialGradient>
+    </defs>
+
+    <!-- 随机反光效果 -->
+    <g opacity="0.1">
+        <path d="M50,150 A100,100 0 0,1 250,150" stroke="white" stroke-width="2"/>
+        <path d="M70,100 A80,80 0 0,1 230,100" stroke="white" stroke-width="1.5"/>
+        <path d="M90,200 A60,60 0 0,1 210,200" stroke="white" stroke-width="1"/>
+    </g>
+</svg>
+</svg>

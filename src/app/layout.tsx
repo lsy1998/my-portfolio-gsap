@@ -4,7 +4,6 @@ import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { Inter } from "next/font/google";
 import { useGSAP } from "@gsap/react";
 
 import "./globals.css";

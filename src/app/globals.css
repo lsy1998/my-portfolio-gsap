@@ -1325,3 +1325,194 @@ header .icon {
   border-left: 0.5px white solid;
   border-right: 0.5px white solid;
 }
+
+.vinyl-player {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: 100px auto;
+  height: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+}
+
+.vinyl-disc {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  cursor: pointer;
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.5),
+    0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.vinyl-disc::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(
+      circle at center,
+      rgba(40, 40, 40, 0.8) 0%,
+      rgba(20, 20, 20, 0.9) 40%,
+      rgba(10, 10, 10, 1) 70%
+    );
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.vinyl-disc.active {
+  transform: scale(1.1) translateZ(50px) rotateX(5deg);
+}
+
+.vinyl-disc.active::before {
+  opacity: 1;
+}
+
+.disc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  filter: contrast(1.2) brightness(0.9);
+  transition: all 0.5s ease;
+}
+
+.vinyl-disc.active .disc-image {
+  filter: contrast(1.4) brightness(1.1) saturate(1.2);
+}
+
+.vinyl-grooves {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.1) 0px,
+    rgba(255, 255, 255, 0.05) 1px,
+    transparent 2px,
+    transparent 3px
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.vinyl-disc.active .vinyl-grooves {
+  opacity: 1;
+}
+
+.vinyl-reflection {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.05) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.vinyl-disc.active .vinyl-reflection {
+  opacity: 1;
+}
+
+.needle {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  width: 100px;
+  height: 200px;
+  z-index: 2;
+  transform-origin: 20% 20%;
+  transform: rotate(-30deg); /* 修改初始角度 */
+}
+
+.needle img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.vinyl-disc {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: radial-gradient(circle at center, #000000 30%, #1a1a1a 70%);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  transform-origin: center center;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.vinyl-disc:hover {
+  transform: scale(1.02);
+}
+
+.vinyl-disc::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle at center, #ffffff 0%, #dddddd 100%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.disc-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform-origin: center center;
+  filter: contrast(1.2);
+}
+
+.play-button {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 30px;
+  border: none;
+  border-radius: 25px;
+  background: var(--gradient-purple-haze);
+  color: white;
+  font-family: 'Lanseyu', sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.play-button:hover {
+  transform: translateX(-50%) scale(1.05);
+  box-shadow: 0 0 15px rgba(247, 189, 248, 0.5);
+}
+
+.box {
+  margin-top: 50px;
+}

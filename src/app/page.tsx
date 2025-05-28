@@ -57,6 +57,50 @@ const HomePage = () => {
         },
       });
 
+      // 创建文字动画
+      const lyricsTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".lyrics-container",
+          start: "top 80%",
+          end: "bottom 80%",
+          scrub: 1.5,
+          markers: true,
+        },
+      });
+
+      // 添加文字动画效果，每行依次淡入
+      lyricsTimeline
+        .to(".line1", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        })
+        .to(".line2", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        })
+        .to(".line3", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        })
+        .to(".line4", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        })
+        .to(".line5", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        })
+        .to(".line6", {
+          opacity: 1,
+          duration: 0.5,
+          ease: "none",
+        });
+
       // 创建唱片滚动时的缩放动画和指针隐藏动画
       const scrollTimeline = gsap.timeline({
         scrollTrigger: scrollTriggerConfig,
@@ -142,9 +186,17 @@ const HomePage = () => {
         </button> */}
       </div>
 
-      <div>
-        于是整座山就忘了你 忘了多艳丽 山花终将离去
-        漫山遍野那些荒唐里我回头望去山花了无痕迹
+      <div className="lyrics-container">
+        <div className="lyrics-line line1">于是整座山就忘了你</div>
+        <div className="lyrics-line line2">忘了多艳丽</div>
+
+        <div className="lyrics-line line3">山花终将离去</div>
+
+        <div className="lyrics-line line4">漫山遍野那些荒唐里</div>
+
+        <div className="lyrics-line line5">我回头望去</div>
+
+        <div className="lyrics-line line6">山花了无痕迹</div>
       </div>
     </main>
   );

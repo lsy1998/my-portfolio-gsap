@@ -1516,3 +1516,19 @@ header .icon {
 .box {
   margin-top: 50px;
 }
+
+.lyrics-container {
+  margin-top: 4rem;
+  padding: 2rem;
+  text-align: center;
+  font-family: 'Lanseyu', sans-serif;
+  font-size: 1.5rem;
+  color: var(--color-surface-white);
+}
+
+.lyrics-line {
+  margin: 1rem 0;
+  line-height: 1.6;
+  opacity: 0;
+  will-change: opacity;
+}

@@ -1,0 +1,6 @@
+name = "my-portfolio-gsap"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+[site]
+bucket = "./out"  # Next.js 静态导出目录

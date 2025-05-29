@@ -62,7 +62,7 @@ const HomePage = () => {
           start: "top 80%",
           end: "bottom 100%",
           scrub: 1.5,
-          markers: true,
+          // markers: true,
         },
       });
       // 添加标题动画效果
@@ -79,7 +79,7 @@ const HomePage = () => {
           start: "top 100%",
           end: "bottom 100%",
           scrub: 1.5,
-          markers: true,
+          // markers: true,
         },
       });
 
@@ -193,7 +193,7 @@ const HomePage = () => {
             start: "top 80%",
             end: "bottom 20%",
             scrub: 0.5,
-            markers: true,
+            // markers: true,
             pin: false,
             toggleActions: "play reverse play reverse",
           },

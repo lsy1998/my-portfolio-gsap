@@ -1,5 +1,6 @@
 "use client";
 
+import { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import { ScrollSmoother } from "gsap/dist/ScrollSmoother";
@@ -12,7 +13,7 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({ children }: { children: ReactNode }) {
   const pathname = usePathname();
 
   useGSAP(

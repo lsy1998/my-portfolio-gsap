@@ -5,6 +5,13 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
+interface ScrollTriggerInstance {
+  progress: number;
+  direction: number;
+  isActive: boolean;
+  [key: string]: any;
+}
+
 const HomePage = () => {
   const container = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
@@ -35,7 +42,7 @@ const HomePage = () => {
         start: "top center",
         end: "+=500",
         scrub: 3,
-        onUpdate: (self) => {
+        onUpdate: (self: ScrollTriggerInstance) => {
           const progress = self.progress;
           const vinylDisc = document.querySelector(".vinyl-disc");
           if (vinylDisc) {

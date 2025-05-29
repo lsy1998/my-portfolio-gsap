@@ -1,19 +1,22 @@
 /* Typography */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 * {
   box-sizing: border-box;
 }
 
 @font-face {
-  font-family: 'Lanseyu';
-  src: url('/fonts/lanseyu.ttf') format('truetype');
+  font-family: "Lanseyu";
+  src: url("/fonts/lanseyu.ttf") format("truetype");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: 'Lanseyu';
-  src: url('/fonts/lanseyu.ttf') format('truetype');
+  font-family: "Lanseyu";
+  src: url("/fonts/lanseyu.ttf") format("truetype");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -611,7 +614,7 @@ ul pre.prettyprint {
 
 pre {
   --ifm-pre-background: var(--ifm-color-gray-800) !important;
-  --ifm-font-family-monospace: 'Fraktion Mono';
+  --ifm-font-family-monospace: "Fraktion Mono";
 }
 
 /* Plain text style */
@@ -728,7 +731,7 @@ code .token.url {
 }
 
 .checkbox label:before {
-  content: '';
+  content: "";
   width: 20px;
   height: 20px;
   border-radius: 2px;
@@ -737,7 +740,7 @@ code .token.url {
   margin-right: 10px;
 }
 
-.checkbox input[type='checkbox']:checked ~ label:before {
+.checkbox input[type="checkbox"]:checked ~ label:before {
   background: var(--green) no-repeat center;
   background-size: 12px 12px;
   background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDQ1LjcwMSA0NS43IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA0NS43MDEgNDUuNzsiIHhtbDpzcGFjZT0icHJlc2VydmUiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yMC42ODcsMzguMzMyYy0yLjA3MiwyLjA3Mi01LjQzNCwyLjA3Mi03LjUwNSwwTDEuNTU0LDI2LjcwNGMtMi4wNzItMi4wNzEtMi4wNzItNS40MzMsMC03LjUwNCAgICBjMi4wNzEtMi4wNzIsNS40MzMtMi4wNzIsNy41MDUsMGw2LjkyOCw2LjkyN2MwLjUyMywwLjUyMiwxLjM3MiwwLjUyMiwxLjg5NiwwTDM2LjY0Miw3LjM2OGMyLjA3MS0yLjA3Miw1LjQzMy0yLjA3Miw3LjUwNSwwICAgIGMwLjk5NSwwLjk5NSwxLjU1NCwyLjM0NSwxLjU1NCwzLjc1MmMwLDEuNDA3LTAuNTU5LDIuNzU3LTEuNTU0LDMuNzUyTDIwLjY4NywzOC4zMzJ6IiBmaWxsPSIjRkZGRkZGIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==);
@@ -746,98 +749,98 @@ code .token.url {
 .flair {
   width: 100px;
   height: 100px;
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-0.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-0.png");
   background-size: contain;
   background-repeat: no-repeat;
   will-change: transform;
 }
 
 .flair--2 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-2.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-2.png");
 }
 
 .flair--3 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-3.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-3.png");
 }
 
 .flair--4 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-4.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-4.png");
 }
 
 .flair--5 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-5.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-5.png");
 }
 
 .flair--6 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-6.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-6.png");
 }
 
 .flair--7 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-7.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-7.png");
 }
 
 .flair--8 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-8.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-8.png");
 }
 
 .flair--9 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-9.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-9.png");
 }
 
 .flair--10 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-10.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-10.png");
 }
 
 .flair--11 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-11.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-11.png");
 }
 
 .flair--12 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-12.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-12.png");
 }
 
 .flair--13 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-13.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-13.png");
 }
 
 .flair--14 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-14.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-14.png");
 }
 
 .flair--15 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-15.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-15.png");
 }
 
 .flair--16 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-16.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-16.png");
 }
 
 .flair--17 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-17.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-17.png");
 }
 
 .flair--18 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-18.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-18.png");
 }
 
 .flair--19 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-19.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-19.png");
 }
 
 .flair--20 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-20.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-20.png");
 }
 
 .flair--21 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-21.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-21.png");
 }
 
 .flair--22 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-22.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-22.png");
 }
 
 .flair--23 {
-  background-image: url('https://gsap.com/_img/codepen/flair/Flair-23.png');
+  background-image: url("https://gsap.com/_img/codepen/flair/Flair-23.png");
 }
 
 .flair-cont {
@@ -850,7 +853,7 @@ code .token.url {
 
 .gradient-green {
   background: var(--gradient-macha),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -858,7 +861,7 @@ code .token.url {
 
 .gradient-green-2 {
   background: var(--gradient-emerald-city),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -866,7 +869,7 @@ code .token.url {
 
 .gradient-orange {
   background: var(--gradient-orange-crush),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -874,7 +877,7 @@ code .token.url {
 
 .gradient-purple {
   background: var(--gradient-purple-haze),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -882,7 +885,7 @@ code .token.url {
 
 .gradient-blue-2 {
   background: var(--gradient-summer-fair),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -890,7 +893,7 @@ code .token.url {
 
 .gradient-blue {
   background: var(--color-ui-gradient),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -898,7 +901,7 @@ code .token.url {
 
 .gradient-red {
   background: var(--gradient-lipstick),
-    url('https://gsap.com/_img/codepen/flair/noise.png');
+    url("https://gsap.com/_img/codepen/flair/noise.png");
   /* Replace with the path to your noise texture image */
   background-blend-mode: color-dodge;
   /* Blend the noise texture with the gradient */
@@ -909,13 +912,13 @@ code .token.url {
 }
 
 .noise:after {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   bottom: 0;
   right: 0;
   left: 0;
-  background: url('https://gsap.com/_img/codepen/flair/noise.png');
+  background: url("https://gsap.com/_img/codepen/flair/noise.png");
   opacity: 0.4;
   pointer-events: none;
 }
@@ -938,7 +941,6 @@ body {
   width: 100%;
   /* set a height because the contents are position: absolute, thus natively there's no height */
   height: 4000px;
-  padding-top: 80px;
 
   background-image: linear-gradient(
       rgba(255, 255, 255, 0.07) 2px,
@@ -989,9 +991,12 @@ button {
 }
 
 .title {
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 4vh;
+  margin-bottom: 4vh;
   text-align: center;
+}
+.title[id="title-1"]{
+  opacity: 0;
 }
 
 footer {
@@ -1329,7 +1334,7 @@ header .icon {
   position: relative;
   width: 100%;
   max-width: 600px;
-  margin: 100px auto;
+  margin: 0px auto;
   height: 600px;
   display: flex;
   justify-content: center;
@@ -1346,25 +1351,22 @@ header .icon {
   transform-style: preserve-3d;
   transition: transform 0.5s ease;
   cursor: pointer;
-  box-shadow: 
-    0 10px 30px rgba(0, 0, 0, 0.5),
-    0 5px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .vinyl-disc::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: 
-    radial-gradient(
-      circle at center,
-      rgba(40, 40, 40, 0.8) 0%,
-      rgba(20, 20, 20, 0.9) 40%,
-      rgba(10, 10, 10, 1) 70%
-    );
+  background: radial-gradient(
+    circle at center,
+    rgba(40, 40, 40, 0.8) 0%,
+    rgba(20, 20, 20, 0.9) 40%,
+    rgba(10, 10, 10, 1) 70%
+  );
   z-index: 1;
   opacity: 0;
   transition: opacity 0.5s ease;
@@ -1470,7 +1472,7 @@ header .icon {
 }
 
 .vinyl-disc::before {
-  content: '';
+  content: "";
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1501,7 +1503,7 @@ header .icon {
   border-radius: 25px;
   background: var(--gradient-purple-haze);
   color: white;
-  font-family: 'Lanseyu', sans-serif;
+  font-family: "Lanseyu", sans-serif;
   font-size: 16px;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1517,17 +1519,17 @@ header .icon {
 }
 
 .lyrics-container {
-  margin-top: 4rem;
+  margin-top: 2rem;
   padding: 2rem;
   text-align: center;
-  font-family: 'Lanseyu', sans-serif;
+  font-family: "Lanseyu", sans-serif;
   font-size: 1.5rem;
   color: var(--color-surface-white);
 }
 
 .lyrics-line {
   margin: 1rem 0;
-  line-height: 1.6;
+  line-height: 1;
   opacity: 0;
   will-change: opacity;
 }
@@ -1536,6 +1538,8 @@ header .icon {
   min-height: 100vh;
   padding: 4rem 2rem;
   color: #ffffff;
+  display: flex;
+  align-items: center;
 }
 
 .intro-container {
@@ -1624,52 +1628,8 @@ header .icon {
   height: 20px;
 }
 
-.intro-right {
-  padding: 2rem;
-}
 
-.experience-card {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 20px;
-  padding: 2rem;
-  backdrop-filter: blur(10px);
-}
 
-.experience-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 2rem;
-  color: #ffffff;
-}
-
-.timeline {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.timeline-item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 2rem;
-  opacity: 0;
-  transform: translateX(30px);
-}
-
-.year {
-  font-size: 1.2rem;
-  font-weight: 700;
-  color: #84fab0;
-  white-space: nowrap;
-}
-
-.timeline-item .content h4 {
-  font-size: 1.1rem;
-  margin-bottom: 0.5rem;
-}
-
-.timeline-item .content p {
-  color: #a8a8a8;
-}
 
 .avatar-section {
   margin-bottom: 2rem;
@@ -1679,8 +1639,8 @@ header .icon {
 
 .avatar-container {
   position: relative;
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 400px;
   margin-bottom: 2rem;
 }
 
@@ -1691,7 +1651,6 @@ header .icon {
   border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   overflow: hidden;
   background: linear-gradient(45deg, #84fab0, #8fd3f4);
-  padding: 4px;
   animation: borderAnimation 8s ease-in-out infinite;
 }
 
@@ -1699,7 +1658,6 @@ header .icon {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
   transition: transform 0.3s ease;
 }
 
@@ -1742,4 +1700,150 @@ header .icon {
 
 .avatar-frame:hover .avatar-image {
   transform: scale(1.1);
+}
+
+.intro-right {
+  padding: 2rem;
+}
+
+.experience-card {
+  /* background: rgba(255, 255, 255, 0.05); */
+  border-radius: 24px;
+  padding: 3rem;
+  /* backdrop-filter: blur(10px); */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+}
+
+.experience-card h3 {
+  font-size: 2rem;
+  margin-bottom: 3rem;
+  color: #ffffff;  background: linear-gradient(90deg, #84fab0, #8fd3f4);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+.timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background: linear-gradient(180deg, #84fab0 0%, #8fd3f4 100%);
+  opacity: 0.3;
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: center;
+  opacity: 0;
+  position: relative;
+  gap: 2rem;
+  width: 100%;
+}
+
+.timeline-item:nth-child(odd) .content {
+  margin-left: auto;
+  transform: translateX(30px);
+}
+
+.timeline-item:nth-child(even) .content {
+  margin-right: auto;
+  transform: translateX(-30px);
+}
+
+.timeline-item:nth-child(odd) {
+  flex-direction: row-reverse;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #84fab0;
+  box-shadow: 0 0 20px rgba(132, 250, 176, 0.5);
+  transform: translateX(-50%);
+}
+
+.year {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -2rem;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #84fab0;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+}
+
+.timeline-item .content {
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1.5rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s ease;
+  width: 45%;
+}
+
+.timeline-item .content:hover {
+  transform: translateX(10px);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.timeline-item .content h4 {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.timeline-item .content p {
+  color: #a8a8a8;
+  line-height: 1.6;
+}
+
+.timeline-item .content .skills {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
+.timeline-item .content .skill-badge {
+  background: rgba(132, 250, 176, 0.1);
+  color: #84fab0;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+}
+
+.timeline-item .content .skill-badge:hover {
+  background: rgba(132, 250, 176, 0.2);
+  transform: translateY(-2px);
 }

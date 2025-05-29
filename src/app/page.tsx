@@ -56,13 +56,28 @@ const HomePage = () => {
           ease: "none",
         },
       });
+      const title1Timeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#title-1-container",
+          start: "top 80%",
+          end: "bottom 100%",
+          scrub: 1.5,
+          markers: true,
+        },
+      });
+      // 添加标题动画效果
+      title1Timeline.to("#title-1", {
+        opacity: 1,
+        duration: 1,
+        ease: "none",
+      });
 
       // 创建文字动画
       const lyricsTimeline = gsap.timeline({
         scrollTrigger: {
           trigger: ".lyrics-container",
-          start: "top 80%",
-          end: "bottom 80%",
+          start: "top 100%",
+          end: "bottom 100%",
           scrub: 1.5,
           markers: true,
         },
@@ -148,12 +163,16 @@ const HomePage = () => {
           duration: 1,
           ease: "power2.out",
         })
-        .to(".intro-container", {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-        }, "-=0.5")
+        .to(
+          ".intro-container",
+          {
+            opacity: 1,
+            y: 0,
+            duration: 1,
+            ease: "power2.out",
+          },
+          "-=0.5"
+        )
         .to(
           ".timeline-item",
           {
@@ -164,23 +183,85 @@ const HomePage = () => {
             ease: "power2.out",
           },
           "-=0.5"
+        ); // 工作经历卡片动画
+      const experienceTimeline = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#work-experience",
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
+        },
+      });
+
+      // 添加卡片入场动画
+      experienceTimeline
+        .from(".experience-card", {
+          opacity: 0,
+          y: 50,
+          duration: 1,
+          ease: "power3.out",
+        })
+        .from(".experience-card h3", {
+          opacity: 0,
+          y: -30,
+          duration: 0.8,
+          ease: "power2.out",
+        })
+        .from(".timeline-item", {
+          opacity: 0,
+          duration: 0.6,
+          stagger: 0.3,
+          ease: "power2.out",
+        })
+        .to(
+          ".timeline-item:nth-child(odd) .content",
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.3,
+            ease: "power2.out",
+          },
+          "-=0.8"
+        )
+        .to(
+          ".timeline-item:nth-child(even) .content",
+          {
+            x: 0,
+            opacity: 1,
+            duration: 0.6,
+            stagger: 0.3,
+            ease: "power2.out",
+          },
+          "-=0.8"
+        )
+        .from(
+          ".year",
+          {
+            opacity: 0,
+            y: -20,
+            duration: 0.4,
+            stagger: 0.2,
+            ease: "back.out(1.7)",
+          },
+          "-=0.4"
         );
 
       // 技能标签的悬停动画
-      const skillTags = document.querySelectorAll('.skill-tag');
+      const skillTags = document.querySelectorAll(".skill-tag");
       skillTags.forEach((tag) => {
-        tag.addEventListener('mouseenter', () => {
+        tag.addEventListener("mouseenter", () => {
           gsap.to(tag, {
             scale: 1.1,
             duration: 0.3,
-            ease: "power2.out"
+            ease: "power2.out",
           });
         });
-        tag.addEventListener('mouseleave', () => {
+        tag.addEventListener("mouseleave", () => {
           gsap.to(tag, {
             scale: 1,
             duration: 0.3,
-            ease: "power2.out"
+            ease: "power2.out",
           });
         });
       });
@@ -207,62 +288,21 @@ const HomePage = () => {
 
   return (
     <main className="home" ref={container}>
-      <div className="header">
-        <h1 className="title">没有永远的年轻，没有唱不完的歌</h1>
-        <p>
-          Simple example for setting up GSAP ScrollSmoother in a NextJS App
-          using the{" "}
-          <strong>
-            <i>App</i>
-          </strong>{" "}
-          Router
-        </p>
-      </div>
-
-      <div className="vinyl-player">
-        <div className="needle" ref={needleRef}>
-          <img src="/images/needle.svg" alt="Needle" />
-        </div>{" "}
-        <div className="vinyl-disc" onClick={togglePlay}>
-          <div className="vinyl-grooves"></div>
-          <div className="vinyl-reflection"></div>
-          <img src="/images/vinyl.svg" alt="Vinyl" className="disc-image" />
-        </div>
-        <audio ref={audioRef} loop>
-          <source src="/audio/renyuren.m4a" type="audio/mp4" />
-        </audio>
-        {/* <button
-          onClick={togglePlay}
-          className="play-button"
-          aria-label={isPlaying ? "暂停" : "播放"}
-        >
-          {isPlaying ? "暂停" : "播放"}
-        </button> */}
-      </div>
-
-      <div className="lyrics-container">
-        <div className="lyrics-line line1">于是整座山就忘了你</div>
-        <div className="lyrics-line line2">忘了多艳丽</div>
-
-        <div className="lyrics-line line3">山花终将离去</div>
-
-        <div className="lyrics-line line4">漫山遍野那些荒唐里</div>
-
-        <div className="lyrics-line line5">我回头望去</div>
-
-        <div className="lyrics-line line6">山花了无痕迹</div>
-      </div>
       <div id="self-introduction" className="self-introduction">
         <div className="intro-container">
-          <div className="intro-left">
-            <div className="avatar-section">
-              <div className="avatar-container">
-                <div className="avatar-frame">
-                  <img src="/images/avatar.jpg" alt="Jackson's avatar" className="avatar-image" />
-                </div>
-                <div className="avatar-decoration"></div>
+          <div className="avatar-section">
+            <div className="avatar-container">
+              <div className="avatar-frame">
+                <img
+                  src="/images/avatar.jpg"
+                  alt="Jackson's avatar"
+                  className="avatar-image"
+                />
               </div>
+              <div className="avatar-decoration"></div>
             </div>
+          </div>
+          <div>
             <h2 className="intro-title">
               你好，我是<span className="highlight">Jackson</span>
             </h2>
@@ -301,22 +341,83 @@ const HomePage = () => {
               </a>
             </div>
           </div>
-          <div className="intro-right">
-            <div className="experience-card">
-              <h3>工作经历</h3>
-              <div className="timeline">
-                <div className="timeline-item">
-                  <div className="year">2023</div>
-                  <div className="content">
-                    <h4>全栈开发工程师</h4>
-                    <p>负责企业级应用开发和优化</p>
+        </div>
+      </div>
+
+      <div className="h-screen" id="special-part">
+        <div className="header title-container" id="title-1-container">
+          <h1 className="title" id="title-1">
+            没有永远的年轻，没有唱不完的歌
+          </h1>
+        </div>
+
+        <div className="vinyl-player">
+          <div className="needle" ref={needleRef}>
+            <img src="/images/needle.svg" alt="Needle" />
+          </div>{" "}
+          <div className="vinyl-disc" onClick={togglePlay}>
+            <div className="vinyl-grooves"></div>
+            <div className="vinyl-reflection"></div>
+            <img src="/images/vinyl.svg" alt="Vinyl" className="disc-image" />
+          </div>
+          <audio ref={audioRef} loop>
+            <source src="/audio/renyuren.m4a" type="audio/mp4" />
+          </audio>
+        </div>
+
+        <div className="lyrics-container">
+          <div className="lyrics-line line1">于是整座山就忘了你</div>
+          <div className="lyrics-line line2">忘了多艳丽</div>
+          <div className="lyrics-line line3">山花终将离去</div>
+          <div className="lyrics-line line4">漫山遍野那些荒唐里</div>
+          <div className="lyrics-line line5">我回头望去</div>
+          <div className="lyrics-line line6">山花了无痕迹</div>
+        </div>
+      </div>
+
+      <div id="work-experience">
+        <div className="intro-right">
+          <div className="experience-card">
+            <div className="timeline">
+              <div className="timeline-item">
+                <div className="year">2023</div>
+                <div className="content">
+                  <h4>高级全栈开发工程师</h4>
+                  <p>
+                    负责企业级应用的架构设计与开发，带领团队完成多个重要项目
+                    的交付
+                  </p>
+                  <div className="skills">
+                    <span className="skill-badge">React</span>
+                    <span className="skill-badge">Node.js</span>
+                    <span className="skill-badge">TypeScript</span>
+                    <span className="skill-badge">微服务</span>
                   </div>
                 </div>
-                <div className="timeline-item">
-                  <div className="year">2021</div>
-                  <div className="content">
-                    <h4>前端开发工程师</h4>
-                    <p>专注于用户界面和交互体验的开发</p>
+              </div>
+              <div className="timeline-item">
+                <div className="year">2022</div>
+                <div className="content">
+                  <h4>全栈开发工程师</h4>
+                  <p>专注于高性能Web应用开发，优化系统架构，提升用户体验</p>
+                  <div className="skills">
+                    <span className="skill-badge">Next.js</span>
+                    <span className="skill-badge">GraphQL</span>
+                    <span className="skill-badge">MongoDB</span>
+                  </div>
+                </div>
+              </div>
+              <div className="timeline-item">
+                <div className="year">2021</div>
+                <div className="content">
+                  <h4>前端开发工程师</h4>
+                  <p>
+                    负责企业官网和管理系统的前端开发，实现响应式设计和动画效果
+                  </p>
+                  <div className="skills">
+                    <span className="skill-badge">Vue.js</span>
+                    <span className="skill-badge">SCSS</span>
+                    <span className="skill-badge">Webpack</span>
                   </div>
                 </div>
               </div>

@@ -184,87 +184,102 @@ const HomePage = () => {
           },
           "-=0.5"
         ); // 工作经历卡片动画
-      const experienceTimeline = gsap.timeline({
-        scrollTrigger: {
-          trigger: "#work-experience",
-          start: "top 80%",
-          end: "bottom 20%",
-          scrub: 1,
-        },
-      });
 
-      // 添加卡片入场动画
-      experienceTimeline
-        .from(".experience-card", {
-          opacity: 0,
-          y: 50,
-          duration: 1,
-          ease: "power3.out",
-        })
-        .from(".experience-card h3", {
-          opacity: 0,
-          y: -30,
-          duration: 0.8,
-          ease: "power2.out",
-        })
-        .from(".timeline-item", {
-          opacity: 0,
-          duration: 0.6,
-          stagger: 0.3,
-          ease: "power2.out",
-        })
-        .to(
-          ".timeline-item:nth-child(odd) .content",
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.3,
-            ease: "power2.out",
+      // 工作经历时间轴动画
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: "#work-experience",
+            start: "top 80%",
+            end: "bottom 20%",
+            scrub: 0.5,
+            markers: true,
+            pin: false,
+            toggleActions: "play reverse play reverse",
           },
-          "-=0.8"
-        )
-        .to(
-          ".timeline-item:nth-child(even) .content",
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.6,
-            stagger: 0.3,
-            ease: "power2.out",
-          },
-          "-=0.8"
-        )
-        .from(
-          ".year",
+        })
+        .fromTo(
+          ".timeline-item",
           {
             opacity: 0,
-            y: -20,
-            duration: 0.4,
+            y: 20,
+          },
+          {
+            opacity: 1,
+            y: 0,
             stagger: 0.2,
+            duration: 0.6,
+            ease: "power2.out",
+          }
+        )
+        .fromTo(
+          ".timeline-item:nth-child(odd) .content",
+          {
+            opacity: 0,
+            x: -50,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.2,
+            duration: 0.4,
             ease: "back.out(1.7)",
           },
-          "-=0.4"
+          "<+=0.1"
+        )
+        .fromTo(
+          ".timeline-item:nth-child(even) .content",
+          {
+            opacity: 0,
+            x: 50,
+          },
+          {
+            opacity: 1,
+            x: 0,
+            stagger: 0.2,
+            duration: 0.4,
+            ease: "back.out(1.7)",
+          },
+          "<"
+        )
+        .fromTo(
+          ".year",
+          {
+            scale: 0.5,
+            opacity: 0,
+          },
+          {
+            scale: 1,
+            opacity: 1,
+            duration: 0.3,
+            stagger: 0.1,
+            ease: "back.out(2)",
+          },
+          "<+=0.2"
         );
 
-      // 技能标签的悬停动画
-      const skillTags = document.querySelectorAll(".skill-tag");
-      skillTags.forEach((tag) => {
-        tag.addEventListener("mouseenter", () => {
-          gsap.to(tag, {
-            scale: 1.1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-        tag.addEventListener("mouseleave", () => {
-          gsap.to(tag, {
-            scale: 1,
-            duration: 0.3,
-            ease: "power2.out",
-          });
-        });
-      });
+      // 技能标签动画
+      gsap.fromTo(
+        ".skill-badge",
+        {
+          scale: 0,
+          opacity: 0,
+        },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.4,
+          stagger: 0.05,
+          ease: "back.out(2)",
+          scrollTrigger: {
+            trigger: ".skills",
+            start: "top 90%",
+            end: "bottom 60%",
+            toggleActions: "play reverse play reverse",
+            scrub: true,
+          },
+        }
+      );
 
       // 监听播放状态变化
       const updateAnimation = (playing: boolean) => {

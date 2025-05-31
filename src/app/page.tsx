@@ -1,8 +1,9 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { SplitText } from "gsap/dist/SplitText";
 import { useGSAP } from "@gsap/react";
 
 interface ScrollTriggerInstance {
@@ -16,6 +17,7 @@ const HomePage = () => {
   const container = useRef<HTMLElement>(null);
   const audioRef = useRef<HTMLAudioElement>(null);
   const needleRef = useRef<HTMLDivElement>(null);
+  const textRef = useRef<HTMLDivElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
 
   const togglePlay = () => {
@@ -29,10 +31,85 @@ const HomePage = () => {
       setIsPlaying(true);
     }
   };
-
   useGSAP(
     () => {
-      if (!container.current || !audioRef.current || !needleRef.current) return;
+      if (
+        !container.current ||
+        !audioRef.current ||
+        !needleRef.current ||
+        !textRef.current
+      )
+        return;
+
+      // 注册 SplitText 插件
+      gsap.registerPlugin(SplitText, ScrollTrigger);
+
+      // 将文本分割成字符
+      const splitText = new SplitText(textRef.current, { type: "chars" });
+      const chars = splitText.chars;
+
+      // 为每个字符添加初始样式
+      gsap.set(chars, {
+        opacity: 0,
+        scale: 1,
+      });
+
+      // 创建字符出现的时间线
+      const charsTl = gsap.timeline({
+        scrollTrigger: {
+          trigger: textRef.current,
+          start: "top 80%",
+          end: "bottom 20%",
+          scrub: 1,
+        },
+      });
+
+      // 随机选择一些字符添加发光效果
+      const glowChars = chars.filter(() => Math.random() > 0.9);
+
+      // 为所有字符添加基础动画
+      charsTl.to(chars, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.1,
+        stagger: {
+          amount: 2,
+          from: "random",
+        },
+        ease: "back.out(1.7)",
+      });
+
+      // 修改发光动画部分的代码
+      const updateGlowEffect = () => {
+        // 先重置所有字符的样式
+        gsap.set(chars, {
+          scale: 1,
+          color: "inherit",
+          textShadow: "none",
+        });
+
+        // 重新随机选择字符
+        const newGlowChars = chars.filter(() => Math.random() > 0.9);
+
+        // 创建新的发光动画
+        gsap.to(newGlowChars, {
+          scale: 1.2,
+          color: "#ffffff",
+          textShadow: "0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff",
+          duration: 1,
+          repeat: 1,
+          yoyo: true,
+          ease: "power1.inOut",
+          stagger: {
+            amount: 1,
+            from: "random",
+          },
+          onComplete: updateGlowEffect, // 动画完成后递归调用
+        });
+      };
+
+      // 初始化发光效果
+      updateGlowEffect();
 
       gsap.registerPlugin(ScrollTrigger);
 
@@ -449,9 +526,10 @@ const HomePage = () => {
       </div>
 
       <div id="special-part-1" className="special-part-1 h-screen">
-        <div className="character-background">
+        <div className="character-background" ref={textRef}>
           于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹
         </div>
+        <div className="h-screen"></div>
       </div>
     </main>
   );

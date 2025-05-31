@@ -1921,3 +1921,27 @@ header .icon {
   color: rgba(255, 255, 255, 0.3);
 }
 
+/* .character-background {
+  font-family: "SmileySans", sans-serif;
+  font-size: 24px;
+  line-height: 1.6;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2px;
+  padding: 2rem;
+} */
+
+.char {
+  display: inline-block;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.char.glow {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 30px #ffffff;
+  transform: scale(1.2);
+  z-index: 1;
+}
+

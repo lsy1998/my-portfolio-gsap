@@ -65,7 +65,7 @@ const HomePage = () => {
       });
 
       // 随机选择一些字符添加发光效果
-      const glowChars = chars.filter(() => Math.random() > 0.9);
+      const glowChars = chars.filter(() => Math.random() > 0.4);
 
       // 为所有字符添加基础动画
       charsTl.to(chars, {

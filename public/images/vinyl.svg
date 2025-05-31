@@ -23,7 +23,7 @@
 
     <!-- 中心标签 -->
     <circle cx="150" cy="150" r="40" fill="url(#center-gradient)"/>
-    <circle cx="150" cy="150" r="25" fill="#FFFFFF"/>
+    <circle cx="150" cy="150" r="25" fill="rgb(253, 233, 15)"/>
     <circle cx="150" cy="150" r="5" fill="#1A1A1A"/>
 
     <!-- 渐变定义 -->

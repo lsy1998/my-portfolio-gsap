@@ -397,7 +397,7 @@ const HomePage = () => {
         </div>
       </div>
 
-      <div id="work-experience">
+      <div id="work-experience" className="work-experience h-screen">
         <div className="intro-right">
           <div className="experience-card">
             <div className="timeline">
@@ -445,6 +445,12 @@ const HomePage = () => {
               </div>
             </div>
           </div>
+        </div>
+      </div>
+
+      <div id="special-part-1" className="special-part-1 h-screen">
+        <div className="character-background">
+          于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹
         </div>
       </div>
     </main>

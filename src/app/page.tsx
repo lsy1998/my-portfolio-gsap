@@ -26,9 +26,13 @@ const HomePage = () => {
     if (isPlaying) {
       audioRef.current.pause();
       setIsPlaying(false);
+      const vinylDisc1 = document.querySelector(".vinyl-disc");
+      vinylDisc1.classList.remove("playing");
     } else {
       audioRef.current.play();
       setIsPlaying(true);
+      const vinylDisc1 = document.querySelector(".vinyl-disc");
+      vinylDisc1.classList.add("playing");
     }
   };
   useGSAP(

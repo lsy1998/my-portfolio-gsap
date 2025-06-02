@@ -374,7 +374,51 @@ const HomePage = () => {
         }
       };
 
-      updateAnimation(isPlaying);
+      updateAnimation(isPlaying); // 人生时间线动画
+      const timelineAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#life-timeline",
+          start: "top center",
+          end: "bottom center",
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+        },
+      });
+
+      // 设置小人初始位置和里程碑初始状态
+      gsap.set(".timeline-walker", {
+        xPercent: -100, // 从左边开始
+      });
+
+      gsap.set(".milestone", {
+        opacity: 0,
+        scale: 0.8,
+      });
+
+      // 创建动画序列
+      const milestonePositions = ["20%", "40%", "60%", "80%"];
+
+      // 小人移动动画
+      timelineAnimation.to(".timeline-walker", {
+        x: "90vw", // 移动到右边
+        ease: "none",
+        duration: 1,
+      });
+
+      // 里程碑出现动画
+      milestonePositions.forEach((position, index) => {
+        timelineAnimation.to(
+          `.milestone:nth-child(${index + 1})`,
+          {
+            opacity: 1,
+            scale: 1,
+            duration: 0.2,
+            ease: "back.out(1.7)",
+          },
+          `<+=${0.25}` // 每个里程碑在前一个出现后0.25的时间出现
+        );
+      });
 
       return () => {
         if (scrollTimeline.scrollTrigger) {
@@ -442,7 +486,6 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
       <div className="h-screen" id="special-part">
         <div className="header title-container" id="title-1-container">
           <h1 className="title" id="title-1">
@@ -473,7 +516,6 @@ const HomePage = () => {
           <div className="lyrics-line line6">山花了无痕迹</div>
         </div>
       </div>
-
       <div id="work-experience" className="work-experience h-screen">
         <div className="intro-right">
           <div className="experience-card">
@@ -524,12 +566,72 @@ const HomePage = () => {
           </div>
         </div>
       </div>
-
-      <div id="special-part-1" className="special-part-1 h-screen">
+      <div
+        id="special-part-1"
+        className="special-part-1 h-screen overflow-hidden relative"
+      >
         <div className="character-background" ref={textRef}>
           于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹于是整座山就忘了忘了多山花将去漫山遍野那些荒唐里我回望去山花了无痕迹
         </div>
-        <div className="h-screen"></div>
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
+      </div>
+
+      <div id="life-timeline" className="h-screen relative">
+        <div className="timeline-wrapper relative w-full px-10">
+          {/* 时间线基础线 */}
+          <div className="timeline-base absolute h-1 bg-gradient-to-r from-gray-500 via-white to-gray-500 w-full top-1/2 transform -translate-y-1/2"></div>
+
+          {/* 行走的小人 */}
+          <div
+            className="timeline-walker absolute top-1/2 transform -translate-y-1/2"
+            style={{ filter: "drop-shadow(0 0 8px rgba(59, 130, 246, 0.5))" }}
+          >
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="#2563EB">
+              <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+            </svg>
+          </div>
+
+          {/* 时间线节点 */}
+          <div className="timeline-milestones absolute w-full h-full top-0 left-0">
+            <div className="milestone absolute left-[20%] top-1/2 transform -translate-y-full opacity-0">
+              <div className="milestone-dot w-4 h-4 bg-blue-500 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 shadow-lg"></div>
+              <div className="milestone-content p-6 rounded-xl shadow-xl mb-4 max-w-xs transform hover:scale-105 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">2010年</h3>
+                <p className="text-gray-600">开始接触编程，发现了编程的乐趣</p>
+              </div>
+            </div>
+
+            <div className="milestone absolute left-[40%] top-1/2 transform translate-y-8 opacity-0">
+              <div className="milestone-dot w-4 h-4 bg-blue-500 rounded-full absolute -top-9 left-1/2 transform -translate-x-1/2 -translate-y-1 shadow-lg"></div>
+              <div className="milestone-content p-6 rounded-xl shadow-xl mt-4 max-w-xs transform hover:scale-105 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">2015年</h3>
+                <p className="text-gray-600">
+                  大学毕业，进入互联网公司，开启职业生涯
+                </p>
+              </div>
+            </div>
+
+            <div className="milestone absolute left-[60%] top-1/2 transform -translate-y-full opacity-0">
+              <div className="milestone-dot w-4 h-4 bg-blue-500 rounded-full absolute bottom-0 left-1/2 transform -translate-x-1/2 translate-y-1/2 shadow-lg"></div>
+              <div className="milestone-content  p-6 rounded-xl shadow-xl mb-4 max-w-xs transform hover:scale-105 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">2020年</h3>
+                <p className="text-gray-600">
+                  成为全栈开发工程师，技术能力全面提升
+                </p>
+              </div>
+            </div>
+
+            <div className="milestone absolute left-[80%] top-1/2 transform translate-y-8 opacity-0">
+              <div className="milestone-dot w-4 h-4 bg-blue-500 rounded-full absolute -top-8 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-lg"></div>
+              <div className="milestone-content  p-6 rounded-xl shadow-xl mt-4 max-w-xs transform hover:scale-105 transition-transform duration-300">
+                <h3 className="text-xl font-bold text-white mb-2">2025年</h3>
+                <p className="text-gray-600">
+                  开始独立创业之路，追寻更大的梦想
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
   );

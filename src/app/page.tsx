@@ -5,6 +5,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import { SplitText } from "gsap/dist/SplitText";
 import { useGSAP } from "@gsap/react";
+import Model from "@/components/Model";
 
 interface ScrollTriggerInstance {
   progress: number;
@@ -579,7 +580,6 @@ const HomePage = () => {
         </div>
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent"></div>
       </div>
-
       <div id="life-timeline" className="h-screen relative">
         <div className="timeline-wrapper relative w-full px-10">
           {/* 时间线基础线 */}
@@ -634,6 +634,34 @@ const HomePage = () => {
                 </p>
               </div>
             </div>
+          </div>
+        </div>
+      </div>{" "}
+      <div className="skills h-screen w-screen" id="three-d-model">
+        <div className="flex justify-between items-center h-full px-8">
+          <div className="w-1/2">
+            <h2 className="text-4xl font-bold mb-6 text-white">技术栈展示</h2>
+            <p className="text-xl text-gray-300 mb-4">
+              这是一个3D模型展示，展示了我对Three.js和WebGL的掌握程度。
+              通过这个互动性的展示，您可以更直观地了解到我在3D图形渲染方面的能力。
+            </p>
+            <div className="space-y-4">
+              <div className="bg-blue-900/30 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-400 mb-2">
+                  Three.js
+                </h3>
+                <p className="text-gray-400">专业的3D模型渲染和动画制作</p>
+              </div>
+              <div className="bg-blue-900/30 p-4 rounded-lg">
+                <h3 className="text-xl font-semibold text-blue-400 mb-2">
+                  WebGL
+                </h3>
+                <p className="text-gray-400">底层图形渲染技术的深入应用</p>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/2 h-full flex items-center justify-center">
+            <Model />
           </div>
         </div>
       </div>

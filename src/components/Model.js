@@ -3,7 +3,7 @@ import { Canvas, useFrame, useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import { Environment, OrbitControls, useGLTF, Grid } from "@react-three/drei";
 import { Suspense } from "react";
-import { useRef, useEffect, useState} from "react";
+import { useRef, useEffect, useState } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import * as THREE from "three";
@@ -45,6 +45,7 @@ const Model = () => {
   return (<div className="h-2/3 w-screen ">
     <Canvas>
       <Suspense fallback={null}>
+        <OrbitControls enableZoom={false} />
         <Computer scale={4} position={[0, -1, 0]} />
         <ambientLight intensity={0.5} />
         <directionalLight
